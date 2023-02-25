@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voltron_evaluation"
+authors = [
+    {name = "Siddharth Karamcheti", email="skaramcheti@cs.stanford.edu"}
+]
+description = "Voltron Evaluation: Diverse Evaluation Tasks for Robotic Representation Learning – Spanning Grasp Affordance Prediction, Referring Expression Grounding, Visuomotor Control, and beyond!"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["machine learning"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch",
+    "torchvision",
+    "torchaudio",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ipython",
+    "pre-commit",
+    "ruff",
+]
+
+[project.urls]
+homepage = "https://github.com/siddk/voltron-evaluation"
+repository = "https://github.com/siddk/voltron-evaluation"
+documentation = "https://github.com/siddk/voltron-evaluation"
+
+[tool.black]
+line-length = 121
+target-version = ["py38", "py39", "py310"]
+preview = true
+
+[tool.ruff]
+line-length = 121
+target-version = "py38"

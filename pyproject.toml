@@ -3,15 +3,15 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "voltron_evaluation"
+name = "voltron-evaluation"
 authors = [
     {name = "Siddharth Karamcheti", email="skaramcheti@cs.stanford.edu"}
 ]
-description = "Voltron Evaluation: Diverse Evaluation Tasks for Robotic Representation Learning – Spanning Grasp Affordance Prediction, Referring Expression Grounding, Visuomotor Control, and beyond!"
+description = "Voltron Evaluation: Evaluation Suite for Robotic Representation Learning"
 version = "0.0.1"
 readme = "README.md"
 requires-python = ">=3.8"
-keywords = ["machine learning"]
+keywords = ["robotics", "representation learning", "natural language processing", "machine learning"]
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -28,9 +28,12 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
+    "lightning==1.8.6",  # Lock Lightning =>> in case of any breaking future changes...
+    "rich",
     "torch",
     "torchvision",
     "torchaudio",
+    "voltron-robotics",
 ]
 
 [project.optional-dependencies]
@@ -54,3 +57,12 @@ preview = true
 [tool.ruff]
 line-length = 121
 target-version = "py38"
+select = ["A", "B", "C90", "E", "F", "I", "RUF", "W"]
+ignore = ["B008"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["cache", "data"]
